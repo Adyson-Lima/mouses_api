@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::MousesController, type: :controller do
 
-  before{@mouse = Mouse.Create(mouse_type: "fixo", description: "mouse incomum")}
+  before{@mouse = Mouse.create(mouse_type: "fixo", description: "mouse incomum")}
 
   describe 'GET /api/v1/mouses' do
     it 'Consegue listar todos os mouses e retornar status 200?' do
