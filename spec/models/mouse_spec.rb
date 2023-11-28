@@ -28,7 +28,7 @@ RSpec.describe Mouse, type: :model do
 
     it 'Mouse invalido com campos obrigatorios não preenchidos?' do
       mouse = Mouse.new
-      expect(mouse).to be_valid
+      expect(mouse).to be_invalid
     end
 
   end
