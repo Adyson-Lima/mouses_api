@@ -20,4 +20,12 @@ RSpec.describe Api::V1::MousesController, type: :controller do
     end
   end
 
+  describe 'POST /api/v1/mouses' do
+    it 'Consegue criar um mouse e retornar status 201?' do
+      post :create, params: {mouse: {mouse_type: 'gamer', description: 'mouse de alto desenpenho'}, format: :json}
+      expect(response.body).to include_json(mouse_type: 'gamer')
+      expect(response).to have_http_status(201)
+    end
+  end
+
 end
