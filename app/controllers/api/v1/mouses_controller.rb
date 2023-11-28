@@ -11,6 +11,15 @@ class Api::V1::MousesController < ApplicationController
     render json: @mouse
   end
 
+  def create
+    @mouse = Mouse.new(mouse_params)
+    if @mouse.save
+      render json: @mouse, status: :created, location: api_v1_mouse_url(@mouse)
+    else
+      render json: @mouse.errors, status: :unprocessable_entity
+    end
+  end
+
 private
 
 def set_mouse
