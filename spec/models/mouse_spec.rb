@@ -11,6 +11,11 @@ RSpec.describe Mouse, type: :model do
       expect(@mouse.mouse_type).to eq("optico")
     end
 
+    it 'description consegue ser preenchido?' do
+      @mouse.description = ""
+      expect(@mouse.description).to eq("mouse muito comum")
+    end
+
   end
 
 end
