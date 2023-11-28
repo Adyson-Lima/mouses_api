@@ -12,7 +12,7 @@ RSpec.describe Mouse, type: :model do
     end
 
     it 'description consegue ser preenchido?' do
-      @mouse.description = ""
+      @mouse.description = "mouse muito comum"
       expect(@mouse.description).to eq("mouse muito comum")
     end
 
