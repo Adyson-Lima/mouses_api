@@ -28,4 +28,13 @@ RSpec.describe Api::V1::MousesController, type: :controller do
     end
   end
 
+  describe 'PATCH /api/v1/mouses/id' do
+    it 'Consegue atualizar um mouse e retornar status 200?' do
+      mouse = Mouse.last
+      patch :update, params: {mouse: {mouse_type: 'mecanico', description: 'mouse em desuso'}, id: mouse.id}
+      expect(response.body).to include_json(mouse_type: 'mecanico')
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end
