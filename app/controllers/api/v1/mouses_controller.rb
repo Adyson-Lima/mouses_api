@@ -1,6 +1,6 @@
 class Api::V1::MousesController < ApplicationController 
 
-  before_action :set_mouse, only: %i[show update] # show update destroy
+  before_action :set_mouse, only: %i[show update destroy] # show update destroy
 
   def index
     @mouses = Mouse.all 
@@ -18,6 +18,10 @@ class Api::V1::MousesController < ApplicationController
     else
       render json: @mouse.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @mouse.destroy!
   end
 
   def update
