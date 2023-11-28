@@ -18,4 +18,14 @@ RSpec.describe Mouse, type: :model do
 
   end
 
+  describe 'testes de validação do model Mouse' do
+
+    it 'Mouse valido com campos obrigatorios preenchidos?' do
+      @mouse.mouse_type = ''
+      @mouse.description = ''
+      expect(@mouse).to be_valid
+    end
+
+  end
+
 end
