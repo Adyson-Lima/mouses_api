@@ -37,4 +37,14 @@ RSpec.describe Api::V1::MousesController, type: :controller do
     end
   end
 
+  describe 'DELETE /api/v1/mouses/id' do
+    it 'Consegue excluir um mouse e retornar status 204?' do
+      mouse = Mouse.last
+      delete :destroy, params: {id: mouse.id}
+      expect(Mouse.all).not_to include(mouse)
+      expect(response).to have_http_status(204)
+    end
+    
+  end
+
 end
